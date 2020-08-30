@@ -1,5 +1,7 @@
+import { Router, ActivatedRoute } from '@angular/router';
 import { Component, OnInit } from '@angular/core';
-import { ProdutoDetalhes } from './produto-detelhes.model';
+import { ResponseProdutos, Produtos } from './../categorias/shared/produto.model';
+import { ProdutoService } from './../categorias/shared/produto.service';
 
 @Component({
   selector: 'app-produto-detalhes',
@@ -8,27 +10,25 @@ import { ProdutoDetalhes } from './produto-detelhes.model';
 })
 export class ProdutoDetalhesComponent implements OnInit {
 
-  constructor() { }
+  cd: string;
+
+  produtos: Produtos;
+
+  responseProdutos: ResponseProdutos[];
+
+  constructor(
+    private produtoService: ProdutoService,
+    private route: ActivatedRoute,
+    private router: Router
+  ) { }
 
   ngOnInit(): void {
+    this.produtoPorCd();
   }
 
-  produto: ProdutoDetalhes = {
-
-    nome: "HIDRATANTE FACIAL VICHY MINÉRAL 89",
-    img:"https://i.imgur.com/uYGW8dc.jpg",
-    marca: "Vichy",
-    tamanho: "50ml",
-    descricao: "Hidratante Vichy Minéral 89 é um fortalecedor facial composto com Ácido Hialurônico e 89% de Água Vulcânica Mineralizante, comprovadamente capaz de fortalecer as defesas naturais da pele.",
-    valor: 185.99,
-    temEstoque: true,
-    codigo: 17529,
-    ean: 1032165465215,
-    fabricante: "Medley",
-    quantidade: "60cps",
-    principio: "Dipirona"
-
-    
-  }
+  public produtoPorCd() {
+    this.cd = this.route.snapshot.paramMap.get('cd');
+    this.produtoService.getProdutoPorCd(this.cd).subscribe(response => this.responseProdutos = response);
+  }  
 
 }

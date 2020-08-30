@@ -29,6 +29,7 @@ import { MinhaContaComponent } from './atendimento/minha-conta/minha-conta.compo
 import { ContatoComponent } from './atendimento/contato/contato.component';
 import { ComprasComponent } from './atendimento/compras/compras.component';
 import { ServicosComponent } from './atendimento/servicos/servicos.component';
+import { CategoriasComponent } from './categorias/categorias.component';
 
 @NgModule({
   declarations: [
@@ -57,6 +58,7 @@ import { ServicosComponent } from './atendimento/servicos/servicos.component';
     ContatoComponent,
     ComprasComponent,
     ServicosComponent,
+    CategoriasComponent,
   ],
   imports: [
     BrowserModule,
