@@ -10,7 +10,7 @@ import { HistComprasService } from './shared/hist-compras.service';
 })
 export class HistComprasComponent implements OnInit {
 
-  pedido: Pedido[];
+  pedidos: Pedido[];
   erro: any;
   constructor(private histComprasService: HistComprasService) { 
 
@@ -23,7 +23,7 @@ export class HistComprasComponent implements OnInit {
   getPedidosPorId() {
     this.histComprasService.getPedidos().subscribe(
       response => {
-        this.pedido = response;
+        this.pedidos = response;
       });
     }
  

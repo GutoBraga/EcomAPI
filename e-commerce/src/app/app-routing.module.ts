@@ -111,6 +111,22 @@ export const routes: Routes = [
     {
         path: 'atendimento/trocaDevolucao',
         component: TrocaDevolucaoComponent
+    },
+    {
+        path: 'categorias/:id',
+        component: CategoriasComponent
+    },
+    {
+        path: 'categorias',
+        component: CategoriasComponent
+    },
+    {
+        path: 'categorias/produto/:cd',
+        component: ProdutoDetalhesComponent
+    },
+    {
+        path: 'categorias/produto',
+        component: ProdutoDetalhesComponent
     }
 ];
  
